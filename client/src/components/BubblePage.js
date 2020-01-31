@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment as Frag } from "react";
-import axios from "axios";
 
 import Bubbles from "./Bubbles";
 import ColorList from "./ColorList";
@@ -13,13 +12,16 @@ const BubblePage = () => {
   useEffect(() => {
     axiosWithAuth()
       .get("/api/colors")
-      .then(res =>
-        console.log("This is axiosWithAuth.get res in BubblePage.js: ", res)
-      )
+      .then(res => {
+        setColorList(res.data);
+        console.log("This is axiosWithAuth.get res in BubblePage.js: ", res);
+      })
       .catch(err =>
         console.log("This is axiosWithAuth.get err in BubblePage.js: ", err)
       );
   }, []);
+
+  console.log("This is colorList in BubblePage.js: ", colorList)
 
   return (
     <Frag>
