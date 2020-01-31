@@ -31,6 +31,7 @@ class Login extends Component {
       .post("http://localhost:5000/api/login", this.state.credentials)
       .then(res => {
         localStorage.setItem("token", res.data.payload);
+        this.props.history.push("/protected");
         console.log("This is axios.post res: ", res)})
       .catch(err => console.log("This is axios.post err: ", err));
   };
