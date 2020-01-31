@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment as Frag } from "react";
 import axios from "axios";
 
 import Bubbles from "./Bubbles";
@@ -10,10 +10,10 @@ const BubblePage = () => {
   // set that data to the colorList state property
 
   return (
-    <>
+    <Frag>
       <ColorList colors={colorList} updateColors={setColorList} />
       <Bubbles colors={colorList} />
-    </>
+    </Frag>
   );
 };
 
